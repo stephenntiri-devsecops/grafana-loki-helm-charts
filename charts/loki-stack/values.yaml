@@ -6,6 +6,8 @@ test_pod:
 loki:
   enabled: true
   isDefault: true
+  storageClassName: local-storage
+    size: 25Gi
   url: http://{{(include "loki.serviceName" .)}}:{{ .Values.loki.service.port }}
   readinessProbe:
     httpGet:
